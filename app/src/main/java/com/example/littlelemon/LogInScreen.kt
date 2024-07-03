@@ -48,7 +48,7 @@ fun LogInScreen(navController: NavController) {
                             fontSize = 24.sp,
                             textAlign = androidx.compose.ui.text.style.TextAlign.Center
                         )
-                        IconButton(onClick = { /* Handle cart action */ }) {
+                        IconButton(onClick = { navController.navigate("cart") }) {
                             Image(
                                 painter = painterResource(id = R.drawable.cart),
                                 contentDescription = "Cart Button"

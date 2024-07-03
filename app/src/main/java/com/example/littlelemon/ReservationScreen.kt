@@ -1,5 +1,6 @@
 package com.example.littlelemon
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -10,6 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -25,11 +27,39 @@ fun ReservationScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Reservation", color = Color.Yellow) },
-                backgroundColor = Color(0xFF2B4C3F)
+                backgroundColor = Color(0xFF495E57),
+                contentColor = Color.White,
+                elevation = 4.dp,
+                title = {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        IconButton(onClick = { navController.navigate("signIn") }) {
+                            Image(
+                                painter = painterResource(id = R.drawable.back),
+                                contentDescription = "Back Button"
+                            )
+                        }
+                        Text(
+                            "Little Lemon",
+                            modifier = Modifier.weight(1f),
+                            color = Color.Black,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 24.sp,
+                            textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                        )
+                        IconButton(onClick = { navController.navigate("cart")}) {
+                            Image(
+                                painter = painterResource(id = R.drawable.cart),
+                                contentDescription = "Cart Button"
+                            )
+                        }
+                    }
+                }
             )
         }
-
     ) { paddingValues ->
         Box(
             modifier = Modifier

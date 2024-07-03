@@ -30,7 +30,7 @@ fun HomeScreen(navController: NavController) {
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        IconButton(onClick = { /* Handle back action */ }) {
+                        IconButton(onClick = { navController.navigate("mainhome")}) {
                             Image(
                                 painter = painterResource(id = R.drawable.back),
                                 contentDescription = "Back Button"
@@ -44,7 +44,7 @@ fun HomeScreen(navController: NavController) {
                             fontSize = 24.sp,
                             textAlign = androidx.compose.ui.text.style.TextAlign.Center
                         )
-                        IconButton(onClick = { /* Handle cart action */ }) {
+                        IconButton(onClick = { navController.navigate("cart")}) {
                             Image(
                                 painter = painterResource(id = R.drawable.cart),
                                 contentDescription = "Cart Button"

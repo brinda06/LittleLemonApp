@@ -1,3 +1,4 @@
+// SignInScreen.kt
 package com.example.littlelemon
 
 import androidx.compose.foundation.Image
@@ -13,6 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -22,6 +25,7 @@ fun SignInScreen(navController: NavController) {
     val firstName = remember { mutableStateOf("") }
     val lastName = remember { mutableStateOf("") }
     val email = remember { mutableStateOf("") }
+    val password = remember { mutableStateOf("") }
     val phoneNo = remember { mutableStateOf("") }
     val city = remember { mutableStateOf("") }
     val country = remember { mutableStateOf("") }
@@ -38,7 +42,7 @@ fun SignInScreen(navController: NavController) {
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        IconButton(onClick = {navController.navigate("logIn") }) {
+                        IconButton(onClick = { navController.navigate("logIn") }) {
                             Image(
                                 painter = painterResource(id = R.drawable.back),
                                 contentDescription = "Back Button"
@@ -50,7 +54,7 @@ fun SignInScreen(navController: NavController) {
                             color = Color.Black,
                             fontWeight = FontWeight.Bold,
                             fontSize = 24.sp,
-                            textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                            textAlign = TextAlign.Center
                         )
                         IconButton(onClick = { /* Handle cart action */ }) {
                             Image(
@@ -136,6 +140,24 @@ fun SignInScreen(navController: NavController) {
                 Spacer(modifier = Modifier.height(8.dp))
 
                 TextField(
+                    value = password.value,
+                    onValueChange = { password.value = it },
+                    placeholder = { Text("Password", color = Color.Gray) },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color(0xFFFFF1ED), RoundedCornerShape(8.dp))
+                        .padding(horizontal = 16.dp, vertical = 12.dp),
+                    colors = TextFieldDefaults.textFieldColors(
+                        backgroundColor = Color.Transparent,
+                        focusedIndicatorColor = Color.Transparent,
+                        unfocusedIndicatorColor = Color.Transparent
+                    ),
+                    visualTransformation = PasswordVisualTransformation()
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                TextField(
                     value = phoneNo.value,
                     onValueChange = { phoneNo.value = it },
                     placeholder = { Text("Phone No", color = Color.Gray) },
@@ -187,7 +209,9 @@ fun SignInScreen(navController: NavController) {
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Button(
-                    onClick = { navController.navigate("reservation") },
+                    onClick = {navController.navigate("reservation")
+                        // Handle sign up logic here
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(50.dp),
