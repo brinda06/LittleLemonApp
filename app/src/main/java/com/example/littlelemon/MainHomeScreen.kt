@@ -38,8 +38,12 @@ fun MainHomeScreen(navController: NavHostController) {
                     Image(
                         painter = painterResource(id = R.drawable.littlelemmontext),
                         contentDescription = "Little Lemon Logo",
-                        modifier = Modifier.height(24.dp)
+                        modifier = Modifier.height(30.dp)
+
+
                     )
+
+
                     IconButton(onClick = { navController.navigate("cart") }) {
                         Image(
                             painter = painterResource(id = R.drawable.cart),
@@ -53,7 +57,7 @@ fun MainHomeScreen(navController: NavHostController) {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFF495E57))
+                .background(Color(0xFF193626))
                 .padding(paddingValues)
         ) {
             item {
@@ -84,7 +88,7 @@ fun MainHomeScreen(navController: NavHostController) {
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Button(
-                            onClick = { navController.navigate("reservation") },
+                            onClick = { navController.navigate("signIn") },
                             colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black),
                             shape = RoundedCornerShape(8.dp)
                         ) {
@@ -159,7 +163,7 @@ data class SpecialMenuItem(
 fun getMenuItems(category: String): List<SpecialMenuItem> {
     val allItems = listOf(
         SpecialMenuItem("Greek Salad", "The famous Greek salad of crispy lettuce, peppers, olives and our Chicago...", "$12.99", R.drawable.greeksalad, "Lunch"),
-        SpecialMenuItem("Bruschetta", "Grilled bread topped with fresh tomatoes, basil, garlic, and olive oil...", "$8.99", R.drawable.greeksalad, "Main"),
+        SpecialMenuItem("Bruschetta", "Grilled bread topped with fresh tomatoes, basil, garlic, and olive oil...", "$8.99", R.drawable.upperpanelimage, "Main"),
         SpecialMenuItem("Lemon Dessert", "A tangy and sweet lemon dessert to cleanse your palate...", "$5.99", R.drawable.greeksalad, "Dessert")
     )
     return if (category == "Dinner") {

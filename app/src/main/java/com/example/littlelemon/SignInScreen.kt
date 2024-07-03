@@ -4,6 +4,8 @@ package com.example.littlelemon
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -29,6 +31,7 @@ fun SignInScreen(navController: NavController) {
     val phoneNo = remember { mutableStateOf("") }
     val city = remember { mutableStateOf("") }
     val country = remember { mutableStateOf("") }
+    val scrollState = rememberScrollState()
 
     Scaffold(
         topBar = {
@@ -42,7 +45,7 @@ fun SignInScreen(navController: NavController) {
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        IconButton(onClick = { navController.navigate("logIn") }) {
+                        IconButton(onClick = { navController.popBackStack() }) {
                             Image(
                                 painter = painterResource(id = R.drawable.back),
                                 contentDescription = "Back Button"
@@ -70,13 +73,14 @@ fun SignInScreen(navController: NavController) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFF2B4C3F))
+                .background(Color(0xFF193626))
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(contentPadding)
-                    .padding(16.dp),
+                    .padding(16.dp)
+                    .verticalScroll(scrollState),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
@@ -209,7 +213,8 @@ fun SignInScreen(navController: NavController) {
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Button(
-                    onClick = {navController.navigate("reservation")
+                    onClick = {
+                        navController.navigate("signIn")
                         // Handle sign up logic here
                     },
                     modifier = Modifier

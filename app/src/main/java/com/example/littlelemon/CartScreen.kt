@@ -54,7 +54,7 @@ fun CartScreen(navController: NavController) {
                 backgroundColor = Color(0xFF495E57)
             )
         },
-        backgroundColor = Color(0xFF495E57)
+        backgroundColor = Color(0xFF193626)
     ) { padding ->
         Box(modifier = Modifier.fillMaxSize()) {
             LazyColumn(

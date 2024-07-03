@@ -64,7 +64,7 @@ fun ReservationScreen(navController: NavController) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFF2B4C3F))
+                .background(Color(0xFF193626))
                 .padding(paddingValues)
         ) {
             Column(

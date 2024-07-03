@@ -57,7 +57,7 @@ fun ConfirmationScreen(navController: NavController) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFF2B4C3F))
+                .background(Color(0xFF193626))
                 .padding(paddingValues)
         ) {
             Column(
@@ -90,7 +90,7 @@ fun ConfirmationScreen(navController: NavController) {
                 )
 
                 Button(
-                    onClick = { navController.navigate("home") },
+                    onClick = { navController.navigate("mainhome") },
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(50.dp),
